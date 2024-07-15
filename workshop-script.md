@@ -23,7 +23,7 @@ Show the app actually doing something (look at a recipe) and maybe also look
 in the database to show what’s there (for instance, using psql at the command
 line).
 
-Explain that it's using PostgreSQL as a database, and Redis as a cache to
+Explain that it's using PostgreSQL as a database, and Aiven for Caching as a cache to
 speed up (repeated) database access.
 
 Explain that the application comes with its own data - deploying it loads the
@@ -47,7 +47,7 @@ Check people have an Aiven login, and quickly show them how to get on.
 
 > Aiven signup: https://go.aiven.io/signup-netlify-workshop
 
-Lead them through creating the PostgreSQL and Redis services they’re going to need
+Lead them through creating the PostgreSQL and Aiven for Caching services they’re going to need
 
 > We recommend using `do-nyc` in the North America region to minimise latency, as this region will be closest to where the Netlify free plan deploys its functions.
 
@@ -134,16 +134,16 @@ Show the content of the new netlify.toml file
 > **Note** can use `netlify open` to go to the netlify dashboard for the site
 
 
-## Define which PostgreSQL and Redis the app should use
+## Define which PostgreSQL and Aiven for Caching the app should use
 
 * Go to the Aiven Console, and to the PostgreSQL service page
 * Copy the SERVICE URI
 * Use `netlify env:set DATABASE_URL ‘THE-POSTGRES-SERVICE-URI’` - remember
   we’ll need to quote the URL at the command line
 
-* Go to the Aiven Console, and to the Redis service page
+* Go to the Aiven Console, and to the Aiven for Caching service page
 * Copy the SERVICE URI
-* Use `netlify env:set REDIS_URI ‘THE-REDIS-SERVICE-URI’`
+* Use `netlify env:set REDIS_URI ‘THE-AIVEN-FOR-CACHING-SERVICE-URI’`
 
 `netlify env:list` will show them back
 
@@ -198,14 +198,14 @@ This is Not a Good Thing.
 ## Production and testing
 
 We’re using the same database(s) for both production and testing - this is a
-Bad Idea. We’re doing that because we’re using the free PG and Redis, and a
+Bad Idea. We’re doing that because we’re using the free PG and Aiven for Caching, and a
 user is only allowed one of each - which isn’t a problem for real use cases,
 because the free tier is not suitable for production.
 
 * Switch over to the prod url and show wait a minute, the data is changing when I change it in the test url? Whoops this isn’t good
 * Explain that you probably want to use a different data services set up in pre-prod vs prod
 * Explain that this part is just for demo as we don’t have time to set this all up for everyone
-* Show that there is a new prod postgres and redis already created (presenter did this in the background earlier)
+* Show that there is a new prod postgres and caching already created (presenter did this in the background earlier)
 * Show that we need to update the env variables to have a different URL for the services for prod than for everything else
 * Call out “oh wait, the build command seeds the database! We don’t want to do that every time in prod!”
 * Then say “well wait, lets see what that really does…” look at line 38 in prisma/seed.ts and see that it only does that for a blank DB
@@ -213,7 +213,7 @@ because the free tier is not suitable for production.
 
 
 Talk about using a separate build configuration for production and for testing,
-targetting different PostgreSQL and Redis instances.
+targetting different PostgreSQL and Aiven for Caching instances.
 
 ## What's Prisma?
 
