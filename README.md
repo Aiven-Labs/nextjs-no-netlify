@@ -13,16 +13,16 @@ About the app
 
 The application is a recipe library where you can browse and inspect recipes. Additionally, you can like recipes that seem interesting and filter list to show only liked ones. Furthermore, you can see interesting statistics from all of the recipes and those that are liked.
 
-PostgreSQL® is used as the data storage for storing all recipes and whether they are liked or not. Redis®* is optional, but when configured statistics are cached to offer faster response time. The database response times are shown in the app to demonstrate the difference. You can get free services with Aiven for PostgreSQL and Aiven for Redis by [signing up](https://console.aiven.io/signup).
+PostgreSQL® is used as the data storage for storing all recipes and whether they are liked or not. Aiven for Caching is optional, but when configured statistics are cached to offer faster response time. The database response times are shown in the app to demonstrate the difference. You can get free services with Aiven for PostgreSQL and Aiven for Caching by [signing up](https://console.aiven.io/signup).
 
 The application is designed to be hosted on serverless application platform Netlify, which has amazing support for hosting Next.js applications.
 
 Getting started
 ============
 
-The app requires a PostgreSQL database. Configuring Redis is optional, but highly recommended to demonstrate all features of the application and the benefits of having Redis as part of your application. Using `us-east-1` region is recommended to minimise latency, as this region will be closest to where the Netlify functions are deployed if using their free plan.
+The app requires a PostgreSQL database. Configuring Aiven for Caching is optional, but highly recommended to demonstrate all features of the application and the benefits of having Caching as part of your application. Using `us-east-1` region is recommended to minimise latency, as this region will be closest to where the Netlify functions are deployed if using their free plan.
 
-Get free Aiven for PostgreSQL and Aiven for Redis from [Aiven](https://console.aiven.io/singup).
+Get free Aiven for PostgreSQL and Aiven for Caching from [Aiven](https://console.aiven.io/singup).
 
 ## Development setup
 
